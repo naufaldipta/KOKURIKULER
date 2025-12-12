@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Museum Indonesia Interaktif</title>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f9f3fc;
+        color: #333;
+        line-height: 1.7;
+    }
+
+    h1 {
+        text-align: center;
+        color: #5a246e;
+        margin-bottom: 20px;
+    }
+
+    .back-btn {
+        background-color: #5a246e;
+        color: #fff;
+        padding: 10px 15px;
+        border-radius: 8px;
+        cursor: pointer;
+        border: none;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    /* Tab Navigation */
+    .tab {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }
+
+    .tab button {
+        background-color: #e0cfee;
+        border: none;
+        padding: 12px 20px;
+        cursor: pointer;
+        transition: 0.3s;
+        margin: 5px;
+        border-radius: 8px;
+        font-weight: bold;
+    }
+
+    .tab button:hover {
+        background-color: #5a246e;
+        color: white;
+    }
+
+    .tab button.active {
+        background-color: #5a246e;
+        color: white;
+    }
+
+    /* Tab content */
+    .tabcontent {
+        display: none;
+        animation: fadeEffect 0.5s;
+        max-width: 800px;
+        margin: 0 auto 20px;
+        background-color: #f0e6f5;
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    @keyframes fadeEffect {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+
+    .tabcontent img {
+        width: 100%;
+        max-width: 500px;
+        display: block;
+        margin: 15px auto;
+        border-radius: 12px;
+        transition: transform 0.3s;
+    }
+
+    .tabcontent img:hover {
+        transform: scale(1.05);
+    }
+
+    .tabcontent h3 {
+        color: #7b3f9f;
+        text-align: center;
+    }
+
+    .tabcontent p {
+        text-align: justify;
+        margin-top: 10px;
+    }
+
+    .more-info {
+        display: none;
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #e8d8f0;
+        border-radius: 10px;
+    }
+
+    .info-btn {
+        margin-top: 10px;
+        background-color: #7b3f9f;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .info-btn:hover {
+        background-color: #5a246e;
+    }
+
+</style>
+</head>
+<body>
+
+<button class="back-btn" onclick="history.back()">⬅ Kembali</button>
+<h1>Museum Indonesia Interaktif</h1>
+
+<div class="tab">
+    <button class="tablinks active" onclick="openMuseum(event, 'Nasional')">Museum Nasional</button>
+    <button class="tablinks" onclick="openMuseum(event, 'Fatahillah')">Museum Fatahillah</button>
+    <button class="tablinks" onclick="openMuseum(event, 'Batik')">Museum Batik</button>
+    <button class="tablinks" onclick="openMuseum(event, 'Tsunami')">Museum Tsunami</button>
+</div>
+
+<!-- Tab Content -->
+<div id="Nasional" class="tabcontent" style="display:block;">
+    <h3>Museum Nasional Indonesia</h3>
+    <img src="museum nasional.jpg" alt="Museum Nasional Indonesia">
+    <p>Dikenal sebagai "Gedung Gajah", museum ini menyimpan koleksi artefak sejarah, seni, dan budaya dari seluruh nusantara.</p>
+    <button class="info-btn" onclick="toggleInfo('infoNasional')">Informasi Lebih Lanjut</button>
+    <div class="more-info" id="infoNasional">
+        <p>Sejarah: Museum Nasional dibangun pada abad ke-19 dan menjadi pusat penelitian serta pelestarian budaya Indonesia. Koleksi meliputi arkeologi, etnografi, dan sejarah.</p>
+    </div>
+</div>
+
+<div id="Fatahillah" class="tabcontent">
+    <h3>Museum Fatahillah (Jakarta)</h3>
+    <img src="Museum fatahhillah.jpg" alt="Museum Fatahillah Jakarta">
+    <p>Museum ini menggambarkan sejarah kota Jakarta, mulai dari masa kolonial hingga perkembangan modern.</p>
+    <button class="info-btn" onclick="toggleInfo('infoFatahillah')">Informasi Lebih Lanjut</button>
+    <div class="more-info" id="infoFatahillah">
+        <p>Sejarah: Bangunan ini awalnya balai kota Batavia dan sekarang menjadi museum sejarah Jakarta, menampilkan artefak, peta, dan lukisan zaman kolonial.</p>
+    </div>
+</div>
+
+<div id="Batik" class="tabcontent">
+    <h3>Museum Batik Pekalongan</h3>
+    <img src="Museum batik.jpg" alt="Museum Batik Pekalongan">
+    <p>Pusat dokumentasi dan pelestarian seni batik Indonesia, menampilkan berbagai motif dari seluruh nusantara.</p>
+    <button class="info-btn" onclick="toggleInfo('infoBatik')">Informasi Lebih Lanjut</button>
+    <div class="more-info" id="infoBatik">
+        <p>Sejarah: Museum Batik Pekalongan didirikan untuk melestarikan teknik, motif, dan sejarah batik yang menjadi warisan budaya Indonesia.</p>
+    </div>
+</div>
+
+<div id="Tsunami" class="tabcontent">
+    <h3>Museum Tsunami Aceh</h3>
+    <img src="Museum tsunami.jpg" alt="Museum Tsunami Aceh">
+    <p>Museum ini mengenang peristiwa tsunami 2004 dan edukasi mitigasi bencana alam.</p>
+    <button class="info-btn" onclick="toggleInfo('infoTsunami')">Informasi Lebih Lanjut</button>
+    <div class="more-info" id="infoTsunami">
+        <p>Sejarah: Dirancang dengan simbolik arsitektur tsunami, museum menyimpan dokumentasi korban, sejarah bencana, serta sarana edukasi mitigasi bencana bagi pengunjung.</p>
+    </div>
+</div>
+
+<script>
+function openMuseum(evt, museumName) {
+    // Hide all tabcontent
+    const tabcontent = document.getElementsByClassName("tabcontent");
+    for (let i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Remove active class from all buttons
+    const tablinks = document.getElementsByClassName("tablinks");
+    for (let i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show current tab and add active class
+    document.getElementById(museumName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+function toggleInfo(infoId) {
+    const info = document.getElementById(infoId);
+    if (info.style.display === "block") {
+        info.style.display = "none";
+    } else {
+        info.style.display = "block";
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Musik Tradisional Indonesia Interaktif</title>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f9f3fc;
+        color: #333;
+        line-height: 1.7;
+    }
+
+    h1 {
+        text-align: center;
+        color: #5a246e;
+        margin-bottom: 20px;
+    }
+
+    .back-btn {
+        background-color: #5a246e;
+        color: #fff;
+        padding: 10px 15px;
+        border-radius: 8px;
+        cursor: pointer;
+        border: none;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    /* Tab Navigation */
+    .tab {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }
+
+    .tab button {
+        background-color: #e0cfee;
+        border: none;
+        padding: 12px 20px;
+        cursor: pointer;
+        transition: 0.3s;
+        margin: 5px;
+        border-radius: 8px;
+        font-weight: bold;
+    }
+
+    .tab button:hover {
+        background-color: #5a246e;
+        color: white;
+    }
+
+    .tab button.active {
+        background-color: #5a246e;
+        color: white;
+    }
+
+    /* Tab content */
+    .tabcontent {
+        display: none;
+        animation: fadeEffect 0.5s;
+        max-width: 800px;
+        margin: 0 auto 20px;
+        background-color: #f0e6f5;
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    @keyframes fadeEffect {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+
+    .tabcontent img {
+        width: 100%;
+        max-width: 550px;
+        display: block;
+        margin: 15px auto;
+        border-radius: 12px;
+        transition: transform 0.3s;
+    }
+
+    .tabcontent img:hover {
+        transform: scale(1.05);
+    }
+
+    .tabcontent h3 {
+        color: #7b3f9f;
+        text-align: center;
+    }
+
+    .tabcontent p {
+        text-align: justify;
+        margin-top: 10px;
+    }
+
+    .more-info {
+        display: none;
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #e8d8f0;
+        border-radius: 10px;
+    }
+
+    .info-btn {
+        margin-top: 10px;
+        background-color: #7b3f9f;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .info-btn:hover {
+        background-color: #5a246e;
+    }
+
+</style>
+</head>
+<body>
+
+<button class="back-btn" onclick="history.back()">⬅ Kembali</button>
+<h1>Musik Tradisional Indonesia Interaktif</h1>
+
+<div class="tab">
+    <button class="tablinks active" onclick="openMusic(event, 'Gamelan')">Gamelan</button>
+    <button class="tablinks" onclick="openMusic(event, 'Angklung')">Angklung</button>
+    <button class="tablinks" onclick="openMusic(event, 'Sasando')">Sasando</button>
+    <button class="tablinks" onclick="openMusic(event, 'Kolintang')">Kolintang</button>
+</div>
+
+<!-- Tab Content -->
+<div id="Gamelan" class="tabcontent" style="display:block;">
+    <h3>Gamelan (Jawa & Bali)</h3>
+    <img src="gamelan.jpg" alt="Gamelan Jawa & Bali">
+    <p>Gamelan adalah ensambel musik tradisional dengan laras slendro dan pelog, digunakan dalam upacara, pertunjukan tari, dan ritual keagamaan.</p>
+    <button class="info-btn" onclick="toggleInfo('infoGamelan')">Informasi Lebih Lanjut</button>
+    <div class="more-info" id="infoGamelan">
+        <p>Sejarah: Sudah ada sejak abad ke-8 di Jawa dan Bali. Alat musiknya meliputi gong, saron, kenong, bonang, kendang, dan alat pukul lainnya. Identitas budaya Jawa dan Bali.</p>
+    </div>
+</div>
+
+<div id="Angklung" class="tabcontent">
+    <h3>Angklung (Jawa Barat)</h3>
+    <img src="angklung.jpg" alt="Angklung Jawa Barat">
+    <p>Alat musik bambu yang dimainkan dengan digoyangkan, menghasilkan nada harmonis khas Sunda.</p>
+    <button class="info-btn" onclick="toggleInfo('infoAngklung')">Informasi Lebih Lanjut</button>
+    <div class="more-info" id="infoAngklung">
+        <p>Sejarah: Digunakan untuk upacara adat, pertunjukan musik, dan pendidikan musik. UNESCO menetapkan Angklung sebagai Warisan Budaya Takbenda.</p>
+    </div>
+</div>
+
+<div id="Sasando" class="tabcontent">
+    <h3>Sasando (NTT)</h3>
+    <img src="sasando.jpg" alt="Sasando NTT">
+    <p>Alat musik petik dari Rote, NTT, terbuat dari bambu dan daun lontar, menghasilkan nada merdu.</p>
+    <button class="info-btn" onclick="toggleInfo('infoSasando')">Informasi Lebih Lanjut</button>
+    <div class="more-info" id="infoSasando">
+        <p>Sejarah: Digunakan dalam upacara adat dan hiburan rakyat. Simbol budaya Rote, NTT.</p>
+    </div>
+</div>
+
+<div id="Kolintang" class="tabcontent">
+    <h3>Kolintang (Minahasa, Sulawesi Utara)</h3>
+    <img src="kolintang.jpg" alt="Kolintang Minahasa">
+    <p>Alat musik perkusi dari Minahasa, dimainkan dengan dipukul menggunakan stik kayu.</p>
+    <button class="info-btn" onclick="toggleInfo('infoKolintang')">Informasi Lebih Lanjut</button>
+    <div class="more-info" id="infoKolintang">
+        <p>Sejarah: Awalnya digunakan dalam ritual keagamaan dan upacara adat. Kini menjadi pertunjukan musik populer.</p>
+    </div>
+</div>
+
+<script>
+function openMusic(evt, musicName) {
+    const tabcontent = document.getElementsByClassName("tabcontent");
+    for (let i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    const tablinks = document.getElementsByClassName("tablinks");
+    for (let i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    document.getElementById(musicName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+function toggleInfo(infoId) {
+    const info = document.getElementById(infoId);
+    info.style.display = info.style.display === "block" ? "none" : "block";
+}
+</script>
+
+</body>
+</html>

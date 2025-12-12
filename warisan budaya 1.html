@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Daftar Warisan Budaya Takbenda (Intangible Cultural Heritage) Indonesia, termasuk tari, museum, batik, dan musik tradisional.">
+    <title>Warisan Budaya Takbenda | Jelajah Warisan</title>
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #f9f3fc;
+        }
+
+        h2 {
+            color: #5a246e;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #5a246e;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: background-color 0.3s;
+            z-index: 1000;
+            border: none;
+        }
+
+        .back-btn:hover {
+            background-color: #7a3aa0;
+        }
+
+        article.item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            color: #fff;
+            overflow: hidden;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(50px);
+            /* Transisi lebih spesifik */
+            transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+        }
+
+        article.item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        article.item img {
+            width: 100%;
+            max-width: 150px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        /* Kontainer teks di samping gambar */
+        article.item .content-wrapper {
+            flex-grow: 1;
+            text-align: left; /* Mengatur rata kiri untuk tata letak yang lebih baik */
+        }
+
+        article.item h3 {
+            margin: 0 0 10px 0;
+        }
+
+        article.item a {
+            color: #fff;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        /* Background warna tiap kategori */
+        .tari { background-color: #a368b2; }
+        .museum { background-color: #6d9eeb; }
+        .batik { background-color: #f8a170; }
+        .musik { background-color: #4dbd98; }
+
+        @media (max-width: 600px) {
+            article.item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            article.item img {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            article.item .content-wrapper {
+                text-align: center; /* Kembali rata tengah di mobile */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <button class="back-btn" onclick="goBack()" aria-label="Kembali ke halaman sebelumnya atau halaman utama">⬅ Kembali</button>
+</header>
+
+<main>
+<h2>Warisan Budaya Takbenda (Intangible Cultural Heritage)</h2>
+<p>Berikut adalah beberapa contoh warisan budaya takbenda Indonesia yang terdaftar:</p>
+
+<article class="item tari">
+    <img src="https://live.staticflickr.com/3942/15540859312_70f9cfd904_b.jpg" alt="Penari sedang membawakan tarian tradisional Jawa di panggung">
+    <div class="content-wrapper">
+        <h3>TARI TRADISIONAL</h3>
+        <a href="TARI.html" aria-label="Pelajari lebih lanjut tentang Tari Tradisional">Pelajari lebih lanjut</a>
+    </div>
+</article>
+
+<article class="item museum">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Front_facade_-_National_Museum_Indonesia%2C_Jakarta_%282025%29_-_img_07.jpg" alt="Fasad depan Museum Nasional Indonesia di Jakarta">
+    <div class="content-wrapper">
+        <h3>MUSEUM DAN ARSIP KULTUR</h3>
+        <a href="MUSEUM.html" aria-label="Pelajari lebih lanjut tentang Museum dan Arsip Kultur">Pelajari lebih lanjut</a>
+    </div>
+</article>
+
+<article class="item batik">
+    <img src="https://thebatiklibrary.com/cdn/shop/files/batik-class-vancouver-burnaby-surrey-indonesian-indigo-dye-workshop5_f77e7b1d-6eef-41da-99d4-5bd23da3419a_1024x.jpg?v=1693541398" alt="Seorang pengrajin sedang membuat pola batik dengan canting">
+    <div class="content-wrapper">
+        <h3>BATIK (Seni Kriya Tradisional)</h3>
+        <a href="BATIK.html" aria-label="Pelajari lebih lanjut tentang Batik">Pelajari lebih lanjut</a>
+    </div>
+</article>
+
+<article class="item musik">
+    <img src="https://i.ytimg.com/vi/rZa7c_7oNeE/maxresdefault.jpg" alt="Pertunjukan musik Gamelan Jawa, menampilkan berbagai instrumen perkusi">
+    <div class="content-wrapper">
+        <h3>MUSIK TRADISIONAL (Gamelan, Angklung, dll.)</h3>
+        <a href="MUSIK.html" aria-label="Pelajari lebih lanjut tentang Musik Tradisional">Pelajari lebih lanjut</a>
+    </div>
+</article>
+</main>
+
+<footer style="text-align:center; margin-top:50px; color:#888;">
+    <p>&copy; 2025 Warisan Budaya Nusantara</p>
+</footer>
+
+<script>
+function goBack() {
+    if (document.referrer !== "" && document.referrer.includes(window.location.host)) {
+        // Jika kembali dari halaman internal, gunakan history.back()
+        history.back();
+    } else {
+        // Jika tidak ada halaman sebelumnya atau dari domain eksternal, kembali ke index
+        window.location.href = "index.html";
+    }
+}
+
+// Menggunakan Intersection Observer API untuk kinerja scroll yang lebih baik
+document.addEventListener('DOMContentLoaded', () => {
+    const observerOptions = { threshold: 0.1 };
+    const observerCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    };
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    document.querySelectorAll('.item').forEach(el => observer.observe(el));
+});
+</script>
+
+</body>
+</html>

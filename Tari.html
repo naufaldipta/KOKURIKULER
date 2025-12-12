@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tari Tradisional Interaktif Lanjutan</title>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f9f3fc;
+        color: #333;
+        line-height: 1.7;
+    }
+
+    h1 {
+        text-align: center;
+        color: #5a246e;
+        margin-bottom: 20px;
+    }
+
+    .back-btn {
+        background-color: #5a246e;
+        color: #fff;
+        padding: 10px 15px;
+        border-radius: 8px;
+        cursor: pointer;
+        border: none;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    /* Tab Navigation */
+    .tab {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }
+
+    .tab button {
+        background-color: #e0cfee;
+        border: none;
+        padding: 12px 20px;
+        cursor: pointer;
+        transition: 0.3s;
+        margin: 5px;
+        border-radius: 8px;
+        font-weight: bold;
+    }
+
+    .tab button:hover {
+        background-color: #5a246e;
+        color: white;
+    }
+
+    .tab button.active {
+        background-color: #5a246e;
+        color: white;
+    }
+
+    /* Tab content */
+    .tabcontent {
+        display: none;
+        animation: fadeEffect 0.5s;
+        max-width: 800px;
+        margin: 0 auto 20px;
+        background-color: #f0e6f5;
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    @keyframes fadeEffect {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+
+    .tabcontent img {
+        width: 100%;
+        max-width: 500px;
+        display: block;
+        margin: 15px auto;
+        border-radius: 12px;
+        transition: transform 0.3s;
+    }
+
+    .tabcontent img:hover {
+        transform: scale(1.05);
+    }
+
+    .tabcontent h3 {
+        color: #7b3f9f;
+        text-align: center;
+    }
+
+    .tabcontent p {
+        text-align: justify;
+        margin-top: 10px;
+    }
+
+    .more-info {
+        display: none;
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #e8d8f0;
+        border-radius: 10px;
+    }
+
+    .info-btn {
+        margin-top: 10px;
+        background-color: #7b3f9f;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .info-btn:hover {
+        background-color: #5a246e;
+    }
+
+    audio {
+        display: block;
+        margin: 15px auto;
+    }
+
+</style>
+</head>
+<body>
+
+<button class="back-btn" onclick="history.back()">⬅ Kembali</button>
+<h1>Tari Tradisional Interaktif Lanjutan</h1>
+
+<div class="tab">
+    <button class="tablinks active" onclick="openDance(event, 'Pendet')">Tari Pendet</button>
+    <button class="tablinks" onclick="openDance(event, 'Saman')">Tari Saman</button>
+    <button class="tablinks" onclick="openDance(event, 'Jaipong')">Tari Jaipong</button>
+    <button class="tablinks" onclick="openDance(event, 'Reog')">Tari Reog</button>
+    <button class="tablinks" onclick="openDance(event, 'Kecak')">Tari Kecak</button>
+    <button class="tablinks" onclick="openDance(event, 'Legong')">Tari Legong</button>
+</div>
+
+<!-- Tab Content -->
+<div id="Pendet" class="tabcontent" style="display:block;">
+    <h3>Tari Pendet (Bali)</h3>
+    <img src="Pendet Bali.jpg" alt="Tari Pendet Bali">
+    <p>Tari penyambutan lembut dengan gerakan tangan halus, awalnya untuk upacara pemujaan di pura.</p>
+    <button class="info-btn" onclick="toggleInfo('infoPendet')">Informasi Lebih Lanjut</button>
+    <div class="more-info" id="infoPendet">
+        <p>Sejarah: Tari Pendet berasal dari Bali dan merupakan simbol penyambutan dewa maupun tamu. Makna gerakan tangan adalah persembahan bunga dan doa.</p>
+    </div>
+</div>
+
+<div id="Saman" class="tabcontent">
+    <h3>Tari Saman (Aceh)</h3>
+    <img src="Sama.jpg" alt="Tari Saman Aceh">
+    <p>Tari cepat, kompak, dengan tepukan tangan dan gerakan ritmis.</p>
+    <button class="info-btn" onclick="toggleInfo('infoSaman')">Informasi Lebih Lanjut</button>
+    <div class="more-info" id="infoSaman">
+        <p>Sejarah: Tari Saman diciptakan oleh masyarakat Gayo di Aceh. Gerakan cepat melambangkan persatuan dan kebersamaan komunitas.</p>
+    </div>
+</div>
+
+<div id="Jaipong" class="tabcontent">
+    <h3>Tari Jaipong (Jawa Barat)</h3>
+    <img src="Jaipong.jpg" alt="Tari Jaipong Jawa Barat">
+    <p>Tari energik khas Sunda, memadukan gerakan ekspresif dan musik tradisional Sunda.</p>
+    <button class="info-btn" onclick="toggleInfo('infoJaipong')">Informasi Lebih Lanjut</button>
+    <div class="more-info" id="infoJaipong">
+        <p>Sejarah: Tari Jaipong dikembangkan pada 1960-an di Bandung. Makna gerakan mencerminkan kegembiraan dan ekspresi masyarakat Sunda.</p>
+    </div>
+</div>
+
+<div id="Reog" class="tabcontent">
+    <h3>Tari Reog Ponorogo (Jawa Timur)</h3>
+    <img src="Reog.jpg" alt="Tari Reog Ponorogo Jawa Timur">
+    <p>Tari pertunjukan dengan topeng besar, kostum warna-warni, dan gerakan dramatis.</p>
+    <button class="info-btn" onclick="toggleInfo('infoReog')">Informasi Lebih Lanjut</button>
+    <div class="more-info" id="infoReog">
+        <p>Sejarah: Tari Reog menceritakan legenda Kerajaan Ponorogo, keberanian prajurit, dan simbol kekuatan kultural daerah.</p>
+    </div>
+</div>
+
+<div id="Kecak" class="tabcontent">
+    <h3>Tari Kecak (Bali)</h3>
+    <img src="Kecak.jpg" alt="Tari Kecak Bali">
+    <p>Tari kolosal dengan banyak penari pria duduk melingkar, mengucapkan “cak” berirama.</p>
+    <button class="info-btn" onclick="toggleInfo('infoKecak')">Informasi Lebih Lanjut</button>
+    <div class="more-info" id="infoKecak">
+        <p>Sejarah: Tari Kecak dikembangkan pada abad ke-20, mengisahkan cerita Ramayana. “Cak” melambangkan suara kolektif yang magis.</p>
+    </div>
+</div>
+
+<div id="Legong" class="tabcontent">
+    <h3>Tari Legong (Bali)</h3>
+    <img src="Legong.jpg" alt="Tari Legong Bali">
+    <p>Tarian klasik Bali yang indah dan elegan, dengan gerakan tangan dan mata ekspresif.</p>
+    <button class="info-btn" onclick="toggleInfo('infoLegong')">Informasi Lebih Lanjut</button>
+    <div class="more-info" id="infoLegong">
+        <p>Sejarah: Tari Legong muncul di Bali sebagai tarian istana, menekankan keanggunan, estetika, dan disiplin tari Bali klasik.</p>
+    </div>
+</div>
+
+<script>
+function openDance(evt, danceName) {
+    // Stop all audio
+    const audios = document.querySelectorAll("audio");
+    audios.forEach(a => a.pause());
+
+    // Hide all tabcontent
+    const tabcontent = document.getElementsByClassName("tabcontent");
+    for (let i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Remove active class from all buttons
+    const tablinks = document.getElementsByClassName("tablinks");
+    for (let i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show current tab and add active class
+    document.getElementById(danceName).style.display = "block";
+    evt.currentTarget.className += " active";
+
+    // Play audio of selected tab
+    const audio = document.querySelector(`#${danceName} audio`);
+    if (audio) audio.play();
+}
+
+function toggleInfo(infoId) {
+    const info = document.getElementById(infoId);
+    if (info.style.display === "block") {
+        info.style.display = "none";
+    } else {
+        info.style.display = "block";
+    }
+}
+</script>
+
+</body>
+</html>

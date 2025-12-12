@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Daftar Warisan Budaya Benda (Tangible Cultural Heritage) Indonesia, termasuk candi, keraton, dan prasasti kuno.">
+    <title>Warisan Budaya Benda | Jelajah Warisan</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #f9f3fc;
+        }
+
+        h2 {
+            color: #5a246e;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #5a246e;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: background-color 0.3s;
+            z-index: 1000;
+            border: none;
+        }
+
+        .back-btn:hover {
+            background-color: #7a3aa0;
+        }
+
+        article.item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            color: #fff;
+            overflow: hidden;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(50px);
+            /* Transisi lebih spesifik untuk kinerja yang lebih baik */
+            transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+        }
+
+        article.item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        article.item img {
+            width: 100%;
+            max-width: 150px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        article.item .content-wrapper {
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        article.item h3 {
+            margin: 0 0 10px 0;
+        }
+
+        article.item a {
+            color: #fff;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        /* Background warna tiap kategori */
+        /* Menggunakan kelas yang lebih sesuai dengan kategori Tangible (Situs, Bangunan, Artefak) */
+        .situs { background-color: #a368b2; } /* Candi Borobudur */
+        .bangunan { background-color: #6d9eeb; } /* Keraton */
+        .artefak { background-color: #f8a170; } /* Prasasti */
+        .situs-lain { background-color: #4dbd98; } /* Candi Sewu */
+
+        @media (max-width: 600px) {
+            article.item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            article.item img {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            article.item .content-wrapper {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <button class="back-btn" onclick="goBack()" aria-label="Kembali ke halaman sebelumnya atau halaman utama">⬅ Kembali</button>
+</header>
+
+<script>
+function goBack() {
+    if (document.referrer !== "" && document.referrer.includes(window.location.host)) {
+        history.back();
+    } else {
+        window.location.href = "index.html"; // fallback jika tidak ada halaman sebelumnya
+    }
+}
+
+// Menggunakan Intersection Observer API untuk kinerja scroll yang lebih baik
+document.addEventListener('DOMContentLoaded', () => {
+    const observerOptions = { threshold: 0.1 };
+    const observerCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    };
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    document.querySelectorAll('.item').forEach(el => observer.observe(el));
+});
+</script>
+
+<main>
+    <h2>Warisan Budaya Benda (Tangible Cultural Heritage)</h2>
+    <p>Berikut adalah beberapa contoh situs dan benda cagar budaya Indonesia:</p>
+
+    <article class="item situs">
+        <img src="Borobudur.jpg" alt="Candi Borobudur di Magelang, Jawa Tengah, dilihat dari atas">
+        <div class="content-wrapper">
+            <h3>CANDI BOROBUDUR</h3>
+            <a href="BOROBUDUR.html" aria-label="Pelajari lebih lanjut tentang Candi Borobudur">Pelajari lebih lanjut</a>
+        </div>
+    </article>
+
+    <article class="item bangunan">
+        <img src="Keraton.jpg" alt="Bangunan Keraton Yogyakarta dengan arsitektur tradisional Jawa">
+        <div class="content-wrapper">
+            <h3>KERATON YOGYAKARTA</h3>
+            <a href="KERATON.html" aria-label="Pelajari lebih lanjut tentang Keraton Yogyakarta">Pelajari lebih lanjut</a>
+        </div>
+    </article>
+
+    <article class="item artefak">
+        <img src="Prasasti Kuno.jpg" alt="Prasasti batu kuno dengan ukiran tulisan aksara Jawa Kuno">
+        <div class="content-wrapper">
+            <h3>PRASASTI KUNO</h3>
+            <a href="PRASASTI.html" aria-label="Pelajari lebih lanjut tentang Prasasti Kuno">Pelajari lebih lanjut</a>
+        </div>
+    </article>
+
+    <article class="item situs-lain">
+        <img src="Candi Sewu.jpg" alt="Reruntuhan dan struktur Candi Sewu yang bersejarah">
+        <div class="content-wrapper">
+            <h3>CANDI SEWU</h3>
+            <a href="CANDI SEWU.html" aria-label="Pelajari lebih lanjut tentang Candi Sewu">Pelajari lebih lanjut</a>
+        </div>
+    </article>
+</main>
+
+<footer>
+    <p style="text-align:center; margin-top:50px; color:#888;">&copy; 2025 Warisan Budaya Nusantara</p>
+</footer>
+
+</body>
+</html>
